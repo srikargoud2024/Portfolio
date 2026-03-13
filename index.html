@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srikar Goud Kalal | Portfolio</title>
+  <meta name="description" content="Portfolio of Srikar Goud Kalal, Computer Science graduate student focused on web development, software development, and data-driven applications." />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --border: rgba(148, 163, 184, 0.2);
+      --shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 25%),
+        linear-gradient(180deg, #020617 0%, #0b1120 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(2, 6, 23, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover,
+    .social a:hover,
+    .project-links a:hover,
+    .contact-list a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 92px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 4vw, 4.6rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .hero-text p + p {
+      margin-top: 10px;
+    }
+
+    .cta-row,
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #062033;
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card,
+    .section-card,
+    .project-card,
+    .timeline-item,
+    .stat,
+    .skill-chip,
+    .contact-card {
+      border: 1px solid var(--border);
+      background: rgba(17, 24, 39, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      border-radius: 24px;
+      padding: 26px;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .hero-card strong {
+      color: var(--text);
+    }
+
+    section {
+      padding: 28px 0 54px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 760px;
+    }
+
+    .section-card {
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .stats-grid,
+    .education-grid,
+    .projects-grid,
+    .contact-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 26px;
+    }
+
+    .stat {
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .stat h3 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .education-grid,
+    .projects-grid,
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .edu-card,
+    .project-card,
+    .contact-card {
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .edu-card h3,
+    .project-card h3,
+    .timeline-item h3,
+    .contact-card h3 {
+      font-size: 1.16rem;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .skill-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(30, 41, 59, 0.95);
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      border-radius: 20px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+
+    .timeline-item ul,
+    .project-card ul,
+    .contact-list {
+      margin-top: 12px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .project-card p,
+    .timeline-item p,
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .contact-card {
+      min-height: 100%;
+    }
+
+    footer {
+      padding: 26px 0 40px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .stats-grid,
+      .education-grid,
+      .projects-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero-card,
+      .section-card,
+      .project-card,
+      .timeline-item,
+      .edu-card,
+      .contact-card {
+        padding: 18px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">Srikar Goud Kalal</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Computer Science Graduate Student · OPT</span>
+          <h1>Hi, I’m <span>Srikar</span>.</h1>
+          <p>
+            I’m a Master’s student in Computer Science at NJIT, focused on web development,
+            software engineering, and data-driven applications.
+          </p>
+          <p>
+            I enjoy building practical systems with Python, Java, SQL, HTML, JavaScript, and modern development tools.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+          </div>
+          <div class="social">
+            <a href="mailto:srikar.goud2024@gmail.com">Email</a>
+            <a href="https://github.com/srikargoud2002" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/k-srikar-goud-90500b260" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Quick Profile</h3>
+          <ul>
+            <li><strong>Location:</strong> Jersey City, New Jersey</li>
+            <li><strong>Current Degree:</strong> M.S. in Computer Science, NJIT</li>
+            <li><strong>Graduation:</strong> December 2025</li>
+            <li><strong>Focus:</strong> Web development, databases, and software engineering</li>
+            <li><strong>Open To:</strong> Full-time software and web development roles</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="container stats-grid">
+        <div class="stat">
+          <h3>3.5/4</h3>
+          <p>Master’s GPA at NJIT</p>
+        </div>
+        <div class="stat">
+          <h3>7.6/10</h3>
+          <p>Bachelor’s GPA at Parul University</p>
+        </div>
+        <div class="stat">
+          <h3>1+</h3>
+          <p>Internship in web development</p>
+        </div>
+        <div class="stat">
+          <h3>3</h3>
+          <p>Featured academic and software projects</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          Here is a quick introduction based on your resume and Overleaf content.
+        </p>
+        <div class="section-card">
+          <p>
+            I am Srikar Goud Kalal, a Computer Science graduate student at the New Jersey Institute of Technology.
+            My academic background combines computer science fundamentals with artificial intelligence, database systems,
+            software development, and web technologies.
+          </p>
+          <br />
+          <p>
+            I like building structured, useful, and user-friendly applications. My experience includes responsive frontend work,
+            Java-based applications with MySQL, and SQL-driven analytical systems that turn raw data into practical insights.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic background and relevant coursework.</p>
+        <div class="education-grid">
+          <article class="edu-card hero-card">
+            <div class="meta">September 2024 – December 2025</div>
+            <h3>New Jersey Institute of Technology</h3>
+            <p><strong>Master’s in Computer Science</strong></p>
+            <p class="muted">Newark, New Jersey</p>
+            <p class="muted">CGPA: 3.5/4</p>
+            <ul>
+              <li>Data Management System Design</li>
+              <li>Data Structures &amp; Algorithms</li>
+              <li>Operating System</li>
+              <li>Java Programming</li>
+              <li>Artificial Intelligence</li>
+            </ul>
+          </article>
+
+          <article class="edu-card hero-card">
+            <div class="meta">August 2020 – May 2024</div>
+            <h3>Parul University</h3>
+            <p><strong>Bachelor’s in Computer Science and Artificial Intelligence</strong></p>
+            <p class="muted">Vadodara, Gujarat, India</p>
+            <p class="muted">CGPA: 7.6/10 · Rank: NAAC A++</p>
+            <ul>
+              <li>Python for Data Science</li>
+              <li>Machine Learning</li>
+              <li>Artificial Intelligence</li>
+              <li>Compiler Design</li>
+              <li>Web Development</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Core technologies from your resume, grouped for readability.</p>
+        <div class="section-card">
+          <h3>Languages</h3>
+          <div class="skills-wrap">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">PHP</span>
+            <span class="skill-chip">HTML</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">SQL</span>
+          </div>
+
+          <br />
+          <h3>Tools, Frameworks, and Libraries</h3>
+          <div class="skills-wrap">
+            <span class="skill-chip">Django</span>
+            <span class="skill-chip">Pandas</span>
+            <span class="skill-chip">NumPy</span>
+            <span class="skill-chip">ElasticSearch</span>
+            <span class="skill-chip">Matplotlib</span>
+            <span class="skill-chip">Scikit-Learn</span>
+            <span class="skill-chip">GitHub</span>
+            <span class="skill-chip">Docker</span>
+          </div>
+
+          <br />
+          <h3>Databases & Platforms</h3>
+          <div class="skills-wrap">
+            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">MongoDB</span>
+            <span class="skill-chip">Windows</span>
+            <span class="skill-chip">Ubuntu</span>
+            <span class="skill-chip">Linux</span>
+          </div>
+
+          <br />
+          <h3>Soft Skills</h3>
+          <div class="skills-wrap">
+            <span class="skill-chip">Leadership</span>
+            <span class="skill-chip">Problem Solving</span>
+            <span class="skill-chip">Team Work</span>
+            <span class="skill-chip">Communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Professional experience from your resume.</p>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="meta">August 2023 – September 2023</div>
+            <h3>Web Development and Designing Intern · Oasis Infobyte</h3>
+            <p>Remote · Hyderabad, Telangana, India</p>
+            <ul>
+              <li>Designed and developed responsive web pages using HTML, CSS, and JavaScript.</li>
+              <li>Improved existing interfaces to make pages more user-friendly and visually appealing.</li>
+              <li>Built frontend components and supported integration with backend APIs.</li>
+              <li>Fixed layout issues and improved responsiveness across devices and browsers.</li>
+              <li>Optimized images and assets to improve performance and loading speed.</li>
+              <li>Participated in testing and debugging before deployment.</li>
+              <li>Collaborated with the design and development team to deliver tasks on time.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">A few projects adapted from your Overleaf resume into website format.</p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="meta">March 2024</div>
+            <h3>College Event Management System</h3>
+            <p><strong>Tech:</strong> Web Application, MySQL</p>
+            <ul>
+              <li>Built a full-stack event management system for academic institutions.</li>
+              <li>Centralized event creation, category management, registrations, and administrative control.</li>
+              <li>Included scheduling, user management, booking confirmation, and notifications.</li>
+              <li>Improved coordination, reduced paperwork, and supported better campus event tracking.</li>
+            </ul>
+            <div class="project-links">
+              <a href="#contact">Request Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="meta">August 2024</div>
+            <h3>Smart Expense Tracker</h3>
+            <p><strong>Tech:</strong> Java, JDBC, MySQL, OOP, Collections</p>
+            <ul>
+              <li>Developed a Java-based expense tracking application using object-oriented programming.</li>
+              <li>Enabled users to record, categorize, and analyze daily expenses.</li>
+              <li>Integrated JDBC with MySQL for persistent storage.</li>
+              <li>Generated monthly summaries and category-wise financial reports.</li>
+            </ul>
+            <div class="project-links">
+              <a href="#contact">Request Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="meta">August 2025</div>
+            <h3>Student Performance Analysis System</h3>
+            <p><strong>Tech:</strong> SQL, MySQL</p>
+            <ul>
+              <li>Created a database-driven academic analytics project using structured SQL queries.</li>
+              <li>Used joins, aggregations, subqueries, and conditional filtering to find insights.</li>
+              <li>Identified performance trends, top-performing students, and at-risk students.</li>
+              <li>Turned educational data into actionable performance insights for decision-making.</li>
+            </ul>
+            <div class="project-links">
+              <a href="#contact">Request Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="meta">Portfolio Upgrade Idea</div>
+            <h3>This Website</h3>
+            <p>
+              This portfolio page is a web version of your Overleaf resume. It is designed to be simple,
+              free to host, and easy to customize later with your photo, resume download button, and project links.
+            </p>
+            <div class="project-links">
+              <a href="#contact">Customize Next</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">The current contact section based on the details you shared.</p>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>Contact Information</h3>
+            <ul class="contact-list">
+              <li><a href="mailto:srikar.goud2024@gmail.com">srikar.goud2024@gmail.com</a></li>
+              <li><a href="tel:+18352394223">+1 (835) 239-4223</a></li>
+              <li>Jersey City, NJ 07307</li>
+              <li><a href="https://github.com/srikargoud2002" target="_blank" rel="noreferrer">github.com/srikargoud2002</a></li>
+              <li><a href="https://linkedin.com/in/k-srikar-goud-90500b260" target="_blank" rel="noreferrer">linkedin.com/in/k-srikar-goud-90500b260</a></li>
+            </ul>
+          </article>
+
+          <article class="contact-card">
+            <h3>What to add next</h3>
+            <p>
+              Add your resume PDF, live GitHub project links, LinkedIn profile, and a short professional summary.
+              That will make this portfolio ready for applications.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Srikar Goud Kalal · Built with HTML and CSS · Free to host on GitHub Pages</p>
+    </div>
+  </footer>
+</body>
+</html>
